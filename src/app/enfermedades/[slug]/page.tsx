@@ -3,6 +3,7 @@ import { doctor } from "@/data/doctor";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
+import Image from "next/image";
 import { FaCheckCircle, FaExclamationTriangle, FaStethoscope, FaInfoCircle, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
 
@@ -84,13 +85,25 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
           <StaggerContainer className="lg:col-span-7 space-y-12">
             
             {/* Overview */}
-            <StaggerItem className="space-y-4">
-              <h2 className="text-2xl font-serif font-bold text-slate-900 flex items-center gap-3">
-                <span className="w-1.5 h-6 bg-accent rounded-full" /> Descripción General
-              </h2>
-              <p className="text-slate-650 font-light leading-relaxed text-sm sm:text-base">
-                {disease.description}
-              </p>
+            <StaggerItem className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              <div className="md:col-span-7 space-y-4">
+                <h2 className="text-2xl font-serif font-bold text-slate-900 flex items-center gap-3">
+                  <span className="w-1.5 h-6 bg-accent rounded-full" /> Descripción General
+                </h2>
+                <p className="text-slate-650 font-light leading-relaxed text-sm sm:text-base">
+                  {disease.description}
+                </p>
+              </div>
+              <div className="md:col-span-5 relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 flex-shrink-0">
+                <Image 
+                  src={disease.image} 
+                  alt={disease.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </StaggerItem>
 
             {/* Symptoms */}

@@ -305,23 +305,34 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {diseases.slice(0, 6).map(disease => (
               <Link 
                 key={disease.id}
                 href={`/enfermedades/${disease.slug}`} 
-                className="group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:bg-white hover:shadow-md hover:border-[#887039]/30 transition-all duration-300 flex flex-col justify-between h-56"
+                className="group bg-white border border-slate-200 rounded-[2rem] overflow-hidden hover:shadow-md hover:border-[#887039]/30 transition-all duration-300 flex flex-col h-full"
               >
-                <div>
-                  <h3 className="text-lg font-bold text-[#111c2b] font-serif mb-2.5 group-hover:text-[#887039] transition-colors">
-                    {disease.name}
-                  </h3>
-                  <p className="text-slate-500 text-xs font-light leading-relaxed line-clamp-3">
-                    {disease.description}
-                  </p>
+                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                  <Image 
+                    src={disease.image} 
+                    alt={disease.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#887039] group-hover:text-[#111c2b] transition-colors">
-                  <span>Ver Ficha Diagnóstica &rarr;</span>
+                <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow">
+                  <div>
+                    <h3 className="text-lg font-bold text-[#111c2b] font-serif mb-2.5 group-hover:text-[#887039] transition-colors line-clamp-2">
+                      {disease.name}
+                    </h3>
+                    <p className="text-slate-500 text-xs font-light leading-relaxed line-clamp-3">
+                      {disease.description}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-slate-100 mt-6 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#887039] group-hover:text-[#111c2b] transition-colors">
+                    <span>Ver Ficha Diagnóstica &rarr;</span>
+                  </div>
                 </div>
               </Link>
             ))}
