@@ -426,17 +426,32 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {symptoms.slice(0, 4).map(sym => (
-              <div key={sym.id} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 flex flex-col justify-between hover:border-amber-500/30 transition-colors shadow-sm">
-                <div>
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-700 flex items-center justify-center mb-4">
-                    <FaExclamationTriangle size={14} />
+              <div key={sym.id} className="group bg-white border border-slate-200 rounded-[2rem] overflow-hidden hover:shadow-md hover:border-amber-500/30 transition-all duration-300 flex flex-col h-full">
+                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                  <Image 
+                    src={sym.image} 
+                    alt={sym.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 bg-amber-500/90 text-white p-2 rounded-xl backdrop-blur-sm">
+                    <FaExclamationTriangle size={12} />
                   </div>
-                  <h4 className="font-bold text-[#111c2b] text-base font-serif mb-2">{sym.name}</h4>
-                  <p className="text-slate-500 text-[11px] leading-relaxed font-light line-clamp-3">{sym.description}</p>
                 </div>
-                <Link href={`/sintomas/${sym.slug}`} className="text-[#887039] font-bold text-[10px] uppercase tracking-wider mt-6 hover:text-[#111c2b] transition-colors">
-                  Cuándo acudir →
-                </Link>
+                <div className="p-6 flex flex-col justify-between flex-grow">
+                  <div>
+                    <h4 className="font-bold text-[#111c2b] text-base font-serif mb-2 group-hover:text-[#887039] transition-colors">{sym.name}</h4>
+                    <p className="text-slate-500 text-[11px] leading-relaxed font-light line-clamp-3">{sym.description}</p>
+                  </div>
+                  <Link 
+                    href={`/sintomas/${sym.slug}`} 
+                    className="text-[#887039] font-bold text-[10px] uppercase tracking-wider mt-6 hover:text-[#111c2b] transition-colors pt-3 border-t border-slate-100 flex items-center justify-between"
+                  >
+                    <span>Cuándo acudir</span>
+                    <span>&rarr;</span>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

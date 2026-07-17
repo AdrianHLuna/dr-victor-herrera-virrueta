@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { services } from "@/data/services";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
@@ -50,27 +51,38 @@ export default function ServiciosPage() {
               </div>
             </FadeUp>
 
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {endoscopias.map(service => (
                 <StaggerItem key={service.id}>
                   <Link 
                     href={`/servicios/${service.slug}`} 
-                    className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm hover:shadow-md hover:border-accent/20 transition-all flex flex-col justify-between h-full group"
+                    className="bg-white border border-slate-200 rounded-[2rem] overflow-hidden hover:shadow-md hover:border-accent/20 transition-all duration-300 flex flex-col h-full group"
                   >
-                    <div>
-                      <span className="text-[9px] bg-primary/5 text-primary border border-primary/10 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider inline-block mb-4">
-                        Endoscopia
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-accent transition-colors">
-                        {service.name}
-                      </h3>
-                      <p className="text-slate-500 text-xs leading-relaxed font-light mb-6">
-                        {service.description}
-                      </p>
+                    <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                      <Image 
+                        src={service.image} 
+                        alt={service.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:text-primary transition-colors">
-                      <span>Ver ficha del estudio &rarr;</span>
-                      <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+                    <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow">
+                      <div>
+                        <span className="text-[9px] bg-primary/5 text-primary border border-primary/10 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider inline-block mb-4">
+                          Endoscopia
+                        </span>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-accent transition-colors">
+                          {service.name}
+                        </h3>
+                        <p className="text-slate-550 text-xs leading-relaxed font-light mb-6">
+                          {service.description}
+                        </p>
+                      </div>
+                      <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:text-primary transition-colors">
+                        <span>Ver ficha del estudio &rarr;</span>
+                        <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </Link>
                 </StaggerItem>
@@ -90,27 +102,38 @@ export default function ServiciosPage() {
               </div>
             </FadeUp>
 
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {cirugias.map(service => (
                 <StaggerItem key={service.id}>
                   <Link 
                     href={`/servicios/${service.slug}`} 
-                    className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm hover:shadow-md hover:border-accent/20 transition-all flex flex-col justify-between h-full group"
+                    className="bg-white border border-slate-200 rounded-[2rem] overflow-hidden hover:shadow-md hover:border-accent/20 transition-all duration-300 flex flex-col h-full group"
                   >
-                    <div>
-                      <span className="text-[9px] bg-accent/10 text-accent border border-accent/25 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider inline-block mb-4">
-                        Laparoscopia / Cirugía
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-accent transition-colors">
-                        {service.name}
-                      </h3>
-                      <p className="text-slate-500 text-xs leading-relaxed font-light mb-6">
-                        {service.description}
-                      </p>
+                    <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                      <Image 
+                        src={service.image} 
+                        alt={service.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:text-primary transition-colors">
-                      <span>Ver ficha quirúrgica &rarr;</span>
-                      <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+                    <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow">
+                      <div>
+                        <span className="text-[9px] bg-accent/10 text-accent border border-accent/25 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider inline-block mb-4">
+                          Laparoscopia / Cirugía
+                        </span>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-accent transition-colors">
+                          {service.name}
+                        </h3>
+                        <p className="text-slate-550 text-xs leading-relaxed font-light mb-6">
+                          {service.description}
+                        </p>
+                      </div>
+                      <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:text-primary transition-colors">
+                        <span>Ver ficha quirúrgica &rarr;</span>
+                        <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </Link>
                 </StaggerItem>

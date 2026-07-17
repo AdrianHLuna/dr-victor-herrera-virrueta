@@ -3,6 +3,7 @@ import { doctor } from "@/data/doctor";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
+import Image from "next/image";
 import { FaCheckCircle, FaInfoCircle, FaPhone, FaWhatsapp, FaNotesMedical, FaClock, FaHeartbeat } from "react-icons/fa";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
 
@@ -69,6 +70,18 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           {/* Left Column: Details & Recovery Guides (60% / 7 cols) */}
           <StaggerContainer className="lg:col-span-7 space-y-12">
             
+            {/* Procedure Banner Image */}
+            <StaggerItem className="relative w-full aspect-[21/9] sm:aspect-[16/7] rounded-3xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100 flex-shrink-0">
+              <Image 
+                src={service.image} 
+                alt={service.name}
+                fill
+                sizes="(max-width: 1024px) 100vw, 800px"
+                className="object-cover"
+                priority
+              />
+            </StaggerItem>
+
             {/* Quick specifications grid */}
             <StaggerItem className="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-white border border-slate-200 p-6 rounded-3xl shadow-sm">
               <div className="flex flex-col gap-1.5 p-3">

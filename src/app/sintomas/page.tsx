@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { symptoms } from "@/data/symptoms";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
@@ -25,32 +26,41 @@ export default function SintomasPage() {
           </p>
         </FadeUp>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {symptoms.map(sym => (
             <StaggerItem key={sym.id} className="h-full">
               <Link 
                 href={`/sintomas/${sym.slug}`} 
-                className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm hover:shadow-md hover:border-accent/20 transition-all flex flex-col justify-between h-full group"
+                className="bg-white border border-slate-200 rounded-[2rem] overflow-hidden hover:shadow-md hover:border-accent/20 transition-all duration-300 flex flex-col h-full group"
               >
-                <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <span className="text-[9px] bg-amber-500/10 text-amber-700 border border-amber-500/20 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1.5">
-                      <FaExclamationTriangle /> Señal de Alerta
-                    </span>
+                <div className="relative w-full aspect-[16/10] bg-slate-100 overflow-hidden">
+                  <Image 
+                    src={sym.image} 
+                    alt={sym.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 bg-amber-500/90 text-white p-2 rounded-xl backdrop-blur-sm">
+                    <FaExclamationTriangle size={12} />
                   </div>
-
-                  <h2 className="text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-accent transition-colors">
-                    {sym.name}
-                  </h2>
-                  
-                  <p className="text-slate-500 text-xs leading-relaxed font-light mb-6">
-                    {sym.description.substring(0, 140)}...
-                  </p>
                 </div>
-
-                <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:text-primary transition-colors">
-                  <span>Cuándo consultar &rarr;</span>
-                  <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+                <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow">
+                  <div>
+                    <span className="text-[9px] bg-amber-500/10 text-amber-700 border border-amber-500/20 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1.5 w-fit mb-4">
+                      <FaExclamationTriangle size={10} /> Señal de Alerta
+                    </span>
+                    <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-serif group-hover:text-accent transition-colors line-clamp-2">
+                      {sym.name}
+                    </h2>
+                    <p className="text-slate-500 text-xs leading-relaxed font-light mb-6">
+                      {sym.description.substring(0, 140)}...
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-slate-100 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-accent group-hover:text-primary transition-colors">
+                    <span>Cuándo consultar &rarr;</span>
+                    <FaArrowRight size={10} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </Link>
             </StaggerItem>

@@ -3,6 +3,7 @@ import { doctor } from "@/data/doctor";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
+import Image from "next/image";
 import { FaExclamationTriangle, FaPhone, FaWhatsapp, FaInfoCircle } from "react-icons/fa";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
 
@@ -64,13 +65,24 @@ export default async function SymptomPage({ params }: { params: Promise<{ slug: 
           <StaggerContainer className="lg:col-span-7 space-y-12">
             
             {/* Why consult warning block */}
-            <StaggerItem className="bg-amber-500/5 border-l-4 border-amber-500 rounded-r-3xl p-8 space-y-4">
-              <h2 className="text-lg font-serif font-bold text-amber-900 flex items-center gap-2">
-                <FaExclamationTriangle className="text-amber-500" /> ¿Por qué requiere valoración médica?
-              </h2>
-              <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-light">
-                {symptom.whyConsult}
-              </p>
+            <StaggerItem className="bg-amber-500/5 border-l-4 border-amber-500 rounded-r-3xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div className="md:col-span-7 space-y-4">
+                <h2 className="text-lg font-serif font-bold text-amber-900 flex items-center gap-2">
+                  <FaExclamationTriangle className="text-amber-500" /> ¿Por qué requiere valoración médica?
+                </h2>
+                <p className="text-slate-750 text-xs sm:text-sm leading-relaxed font-light">
+                  {symptom.whyConsult}
+                </p>
+              </div>
+              <div className="md:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-amber-500/20 shadow-sm bg-white flex-shrink-0">
+                <Image 
+                  src={symptom.image} 
+                  alt={symptom.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 300px"
+                  className="object-cover"
+                />
+              </div>
             </StaggerItem>
 
             {/* Possible causes list */}
