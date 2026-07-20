@@ -95,7 +95,7 @@ export const symptoms: Symptom[] = [
       "Enfermedad inflamatoria intestinal (CUCI)"
     ],
     whyConsult: "Consulte al especialista de inmediato ante cualquier sangrado anal. Es peligroso atribuir siempre el sangrado a hemorroides, ya que podría enmascarar un tumor colorrectal en evolución que requiere una colonoscopia diagnóstica.",
-    relatedConditions: ["polipos-gastricos-y-de-colon", "deteccion-de-cancer-de-colon-y-recto", "enfermedad-diverticular"],
+    relatedConditions: ["enfermedad-hemorroidal-y-hemorroides", "polipos-gastricos-y-de-colon", "deteccion-de-cancer-de-colon-y-recto", "enfermedad-diverticular"],
     image: "/sintomas/sangrado-rectal.png",
     seo: {
       title: "Sangrado Rectal y Evacuaciones con Sangre en Mérida",

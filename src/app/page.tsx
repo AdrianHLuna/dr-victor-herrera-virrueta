@@ -80,20 +80,22 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Editorial text content (7 cols) */}
-            <div className="lg:col-span-7 space-y-8 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#111c2b] text-white border border-[#887039]/30 text-[10px] font-bold uppercase tracking-widest shadow-sm">
+            <div className="lg:col-span-7 flex flex-col items-start space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#111c2b] text-white border border-[#887039]/30 text-[10px] font-bold uppercase tracking-widest shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#887039] animate-ping" />
                 Rigurosa Disciplina y Ética Médica Militar
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#111c2b] leading-[1.1] font-serif uppercase tracking-tight">
-                Dr. Víctor Javier <br />
-                <span className="text-[#887039] drop-shadow-sm">Herrera Virrueta</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111c2b] leading-[1.15] font-serif uppercase tracking-tight">
+                Dr. Víctor Javier{" "}
+                <span className="block text-[#887039] drop-shadow-sm mt-1">
+                  Herrera Virrueta
+                </span>
               </h1>
 
-              <div className="h-[2.5px] w-24 bg-[#887039]" />
+              <div className="h-[3px] w-20 bg-[#887039] rounded-full" />
 
-              <h2 className="text-lg sm:text-xl font-bold text-slate-700 uppercase tracking-wide">
+              <h2 className="text-base sm:text-lg font-bold text-slate-700 uppercase tracking-wide leading-snug">
                 Cirujano General y Especialista en Endoscopia del Aparato Digestivo
               </h2>
 
@@ -102,7 +104,7 @@ export default function Home() {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto">
                 <a 
                   href={whatsappUrl} 
                   target="_blank" 
@@ -155,11 +157,17 @@ export default function Home() {
             <div className="flex items-start gap-4 p-4">
               <FaMapMarkerAlt className="text-[#887039] text-3xl flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-bold text-[#111c2b] uppercase text-xs tracking-wider mb-2 font-serif">Dirección Mérida</h3>
-                <p className="text-slate-650 text-xs leading-relaxed font-light">
-                  Avenida Pérez Ponce #496, Centro. <br />
-                  Calle 31 #645 A, Ciudad Caucel.
-                </p>
+                <h3 className="font-bold text-[#111c2b] uppercase text-xs tracking-wider mb-2 font-serif">Consultorios en Mérida</h3>
+                <ul className="space-y-2 text-slate-650 text-xs leading-relaxed font-light">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#887039] font-bold">•</span>
+                    <span><strong className="font-medium text-[#111c2b]">Sede Centro:</strong> Av. Pérez Ponce #496, Centro.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#887039] font-bold">•</span>
+                    <span><strong className="font-medium text-[#111c2b]">Sede Caucel:</strong> Calle 31 #645 A, Ciudad Caucel.</span>
+                  </li>
+                </ul>
               </div>
             </div>
 

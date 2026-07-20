@@ -703,5 +703,66 @@ export const diseases: MedicalCondition[] = [
       description: "Diagnóstico de várices esofágicas por cirrosis y tratamiento endoscópico en Mérida con el Dr. Víctor Javier Herrera Virrueta.",
       keywords: ["cirrosis hepatica merida", "hipertension portal varices yucatan", "endoscopia cirrosis diagnostico", "drenaje de ascitis merida"]
     }
+  },
+  {
+    id: "vh-dis-013",
+    slug: "enfermedad-hemorroidal-y-hemorroides",
+    name: "Enfermedad Hemorroidal (Hemorroides)",
+    technicalName: "Patología Hemorroidal Interna y Externa",
+    description: "La enfermedad hemorroidal es la inflamación, congestión o prolapso de los cojinetes vasculares y tejido conectivo ubicados en el canal anal. Es una de las condiciones proctológicas más comunes en adultos. Se dividen en hemorroides internas (que provocan sangrado sin dolor al evacuar) y hemorroides externas (que generan bultos dolorosos, ardor y posible trombosis anal). Requiere evaluación por el cirujano especialista para ofrecer el tratamiento más efectivo y descartar otras patologías graves.",
+    symptoms: [
+      "Sangrado transrectal de color rojo brillante durante o al finalizar la evacuación",
+      "Bultos o protuberancias inflamadas y sensibles en el margen anal",
+      "Picazón (prurito anal), irritación y ardor en la región perianal",
+      "Dolor o molestia severa al sentarse o durante la defecación",
+      "Prolapso (sensación de salida de tejido a través del ano)"
+    ],
+    causes: [
+      "Aumento recurrente de la presión venosa en el recto y el ano",
+      "Esfuerzo excesivo evacuatorio secundario a estreñimiento crónico",
+      "Permanecer sentado en el inodoro durante periodos prolongados"
+    ],
+    riskFactors: [
+      "Estreñimiento o diarrea crónica",
+      "Embarazo y parto vaginal",
+      "Obesidad y sedentarismo prolongado",
+      "Dieta baja en fibra y baja ingesta de líquidos",
+      "Factores hereditarios y envejecimiento"
+    ],
+    mexicoStats: "La enfermedad hemorroidal afecta a más del 50% de los adultos mayores de 45 años en México, siendo uno de los principales motivos de consulta médica general y de coloproctología.",
+    complications: [
+      "Trombosis hemorroidal (formación de coágulos sumamente dolorosos dentro de la hemorroide)",
+      "Anemia ferropénica por sangrado crónico e ininterrumpido",
+      "Estrangulamiento hemorroidal con necrosis del tejido prolapsado",
+      "Infección e ulceración secundaria del área anal"
+    ],
+    treatments: [
+      "Tratamiento médico conservador (fibra, venotónicos, baños de asiento y pomadas específicas)",
+      "Ligadura con banda elástica (para hemorroides internas sangrantes de grado I y II)",
+      "Hemorroidectomía quirúrgica (extirpación definitiva para hemorroides prolapsadas o trombosadas)",
+      "Procedimientos avanzados de mínima invasión y electrofulguración"
+    ],
+    faqs: [
+      {
+        question: "¿Cualquier sangrado al evacuar es causado por hemorroides?",
+        answer: "No necesariamente. Si bien las hemorroides son muy frecuentes, el sangrado anal debe ser evaluado por el especialista mediante anoscopia o colonoscopia para descartar fisuras, pólipos o cáncer colorrectal."
+      },
+      {
+        question: "¿Cuándo es indispensable la cirugía de hemorroides?",
+        answer: "La cirugía se indica cuando los tratamientos convencionales no alivian los síntomas, en hemorroides con prolapso permanente (grado III y IV), en casos de trombosis anal recurrente o ante sangrado severo que provoca anemia."
+      },
+      {
+        question: "¿Cómo prevenir la reaparición de hemorroides?",
+        answer: "Es fundamental corregir el hábito intestinal consumiendo de 25 a 30 gramos de fibra al día, tomar al menos 2 litros de agua, evitar el sedentarismo y no permanecer más de 5 minutos sentado en el inodoro."
+      }
+    ],
+    relatedServices: ["colonoscopia", "gastroscopia-o-panendoscopia"],
+    relatedSymptoms: ["sangrado-transrectal", "evacuaciones-con-sangre", "abultamientos-y-hernias"],
+    image: "/enfermedades/hemorroides.png",
+    seo: {
+      title: "Tratamiento de Hemorroides y Cirugía en Mérida",
+      description: "Alivio y tratamiento definitivo para hemorroides en Mérida. Valoración médica, ligadura y hemorroidectomía con el Dr. Víctor Javier Herrera Virrueta.",
+      keywords: ["tratamiento de hemorroides merida", "cirujano de hemorroides yucatan", "hemorroidectomia precio merida", "sangrado anal tratamiento merida"]
+    }
   }
 ];

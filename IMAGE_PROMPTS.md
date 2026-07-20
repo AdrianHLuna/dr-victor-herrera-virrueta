@@ -26,6 +26,19 @@ Negative Prompt: hologram, sci-fi, futuristic, spaceship, cyberpunk, neon, glowi
 
 ## 🦠 Padecimientos / Enfermedades (`/public/enfermedades/`)
 
+### `hemorroides.png`
+**Padecimiento:** Enfermedad Hemorroidal (Hemorroides)
+**Prompt:**
+```
+Aesthetic medical anatomical cross-section illustration of the rectum and lower anal canal, displaying a clean, non-graphic anatomical model of the hemorrhoidal vascular plexus, high-precision clinical textbook illustration, zero text, no labels, no letters.
+Lighting: Clean, bright luxury medical studio lighting, soft shadows.
+Color Palette: Brand Dark Navy (#1E2E4A), Brand Steel Blue (#486694), Midnight Obsidian (#101B2C), Clinical White, Soft Silver.
+Composition: Symmetrical focused clinical view, macro anatomical model.
+Mood: Informative, professional, clean, high-precision.
+Suffixes: high-fidelity medical illustration, 8k, detailed textures, textbook quality --ar 16:9 --v 6.0
+Negative Prompt: text, words, letters, labels, typography, title, watermark, signature, plastic, CGI, 3D render, cartoon, toy, low quality 3d render, clay, video game graphic, hologram, sci-fi, futuristic, spaceship, cyberpunk, neon, glowing digital UI, hud, data rings, blueprints, user interface, blood, open wounds, raw tissue, graphic content.
+```
+
 ### `obesidad.png`
 **Padecimiento:** Obesidad y Sobrepeso
 **Prompt:**
