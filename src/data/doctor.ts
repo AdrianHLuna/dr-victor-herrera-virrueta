@@ -11,7 +11,7 @@ export const doctor: DoctorProfile = {
   cofepris: undefined,
   phone: "9997708534",
   whatsapp: "9997708534",
-  email: "contacto@drvictorherrera.com",
+  email: "victorjavier467@gmail.com",
   address: "Avenida Pérez Ponce #496, Colonia Centro, Mérida, Yucatán",
   city: "Mérida",
   state: "Yucatán",
