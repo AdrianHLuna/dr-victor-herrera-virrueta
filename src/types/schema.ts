@@ -74,6 +74,7 @@ export const DoctorProfileSchema = z.object({
  insurances: z.array(z.string()).optional(),
  schedule: z.string(),
  photo: z.string(),
+ aboutPhoto: z.string().optional(),
  bio: z.string().min(100),
  philosophy: z.string(),
  experience: z.array(ExperienceItemSchema),

@@ -129,8 +129,8 @@ export default function Home() {
                 <div className="absolute inset-0 border-2 border-[#887039]/30 rounded-[2.8rem] pointer-events-none z-10" />
                 
                 <Image 
-                  src={doctor.photo || "/images/doctor.png"} 
-                  alt={`Dr. Víctor Javier Herrera Virrueta`}
+                  src={doctor.photo || "/hero.jpeg"} 
+                  alt="Dr. Víctor Javier Herrera Virrueta - Cirujano General y Endoscopista"
                   fill
                   sizes="(max-width: 1024px) 100vw, 400px"
                   priority
@@ -203,8 +203,28 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left side: Bio description */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* Left side: Photo frame for About Me image */}
+            <div className="lg:col-span-5 flex justify-center items-center order-2 lg:order-1">
+              <div className="relative w-full max-w-[420px] aspect-[4/5] bg-gradient-to-tr from-slate-200 to-slate-300 rounded-[2.8rem] border-4 border-white shadow-2xl overflow-hidden group">
+                <div className="absolute inset-0 border-2 border-[#887039]/30 rounded-[2.6rem] pointer-events-none z-10" />
+                
+                <Image 
+                  src={doctor.aboutPhoto || "/aboutme.jpg"} 
+                  alt="Dr. Víctor Javier Herrera Virrueta en consulta médica"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+
+                <div className="absolute bottom-6 left-6 right-6 bg-[#111c2b]/95 backdrop-blur-sm border border-[#887039]/40 p-4 rounded-2xl z-20 text-center">
+                  <p className="text-[10px] text-[#887039] font-bold uppercase tracking-widest font-serif">Médico Cirujano Militar</p>
+                  <p className="text-xs text-white font-semibold mt-0.5">Subespecialista en Endoscopia Gastrointestinal</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side: Bio description & Milestones */}
+            <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
               <span className="text-[10px] font-bold text-[#887039] uppercase tracking-widest block">Sobre el Cirujano</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#111c2b] font-serif uppercase tracking-tight">
                 Dr. Víctor Javier Herrera Virrueta
@@ -213,10 +233,10 @@ export default function Home() {
               
               <div className="space-y-4 text-slate-650 font-light leading-relaxed text-sm sm:text-base">
                 <p>
-                  Soy egresado como **Médico Cirujano Militar** de la prestigiosa Universidad del Ejército y Fuerza Aérea (UDEFA), donde forjé bases sólidas de disciplina, honestidad y el más alto rigor científico para el cuidado del ser humano.
+                  Soy egresado como <strong className="font-semibold text-slate-900">Médico Cirujano Militar</strong> de la prestigiosa Universidad del Ejército y Fuerza Aérea (UDEFA), donde forjé bases sólidas de disciplina, honestidad y el más alto rigor científico para el cuidado del ser humano.
                 </p>
                 <p>
-                  Posteriormente, cursé la especialidad en **Cirugía General** y la subespecialidad en **Endoscopia del Aparato Digestivo** dentro de las mismas instituciones militares de alta especialidad, consolidándome en el diagnóstico avanzado y abordajes quirúrgicos de mínima invasión.
+                  Posteriormente, cursé la especialidad en <strong className="font-semibold text-slate-900">Cirugía General</strong> y la subespecialidad en <strong className="font-semibold text-slate-900">Endoscopia del Aparato Digestivo</strong> dentro de las mismas instituciones militares de alta especialidad, consolidándome en el diagnóstico avanzado y abordajes quirúrgicos de mínima invasión.
                 </p>
 
                 {expandedBio && (
@@ -237,42 +257,23 @@ export default function Home() {
               >
                 {expandedBio ? "Leer menos ↑" : "Conocer más sobre mi trayectoria →"}
               </button>
-            </div>
 
-            {/* Right side: Experience statistics cards */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6 font-serif">Acreditación e Hitos</h3>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#887039] font-bold font-serif text-sm flex-shrink-0 shadow-sm">
-                      +10
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#111c2b] text-xs uppercase tracking-wider">Años de Trayectoria</h4>
-                      <p className="text-[11px] text-slate-500 font-light mt-0.5">En el ámbito de la salud médica civil y del ejército.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#887039] font-bold font-serif text-sm flex-shrink-0 shadow-sm">
-                      +1k
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#111c2b] text-xs uppercase tracking-wider">Endoscopias Realizadas</h4>
-                      <p className="text-[11px] text-slate-500 font-light mt-0.5">Procedimientos diagnósticos e intervencionistas con sedación.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#887039] font-bold font-serif text-sm flex-shrink-0 shadow-sm">
-                      +500
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-[#111c2b] text-xs uppercase tracking-wider">Cirugías Exitosas</h4>
-                      <p className="text-[11px] text-slate-500 font-light mt-0.5">Laparoscopias programadas de vesícula, apéndice y hernias.</p>
-                    </div>
-                  </div>
+              {/* Milestone cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-100">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
+                  <p className="text-2xl font-bold text-[#887039] font-serif">+10</p>
+                  <p className="text-[11px] font-bold text-[#111c2b] uppercase tracking-wider mt-1">Años Trayectoria</p>
+                  <p className="text-[10px] text-slate-500 font-light mt-0.5">Salud militar y civil</p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
+                  <p className="text-2xl font-bold text-[#887039] font-serif">+1,000</p>
+                  <p className="text-[11px] font-bold text-[#111c2b] uppercase tracking-wider mt-1">Endoscopias</p>
+                  <p className="text-[10px] text-slate-500 font-light mt-0.5">Estudios diagnósticos</p>
+                </div>
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
+                  <p className="text-2xl font-bold text-[#887039] font-serif">+500</p>
+                  <p className="text-[11px] font-bold text-[#111c2b] uppercase tracking-wider mt-1">Cirugías Exitosas</p>
+                  <p className="text-[10px] text-slate-500 font-light mt-0.5">Laparoscopias de mínima invasión</p>
                 </div>
               </div>
             </div>
