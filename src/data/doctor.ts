@@ -81,7 +81,10 @@ export const doctor: DoctorProfile = {
       year: "Egreso",
     }
   ],
-  sameAs: []
+  sameAs: [],
+  ga4Id: "G-54KYKBY3H8",
+  gtmId: "GTM-K6W8FQG3",
+  googleAdsId: "AW-18345396143"
 };
 
 export const offices = [
