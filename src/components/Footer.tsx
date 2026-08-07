@@ -138,6 +138,11 @@ export default function Footer() {
             CÉDULA PROFESIONAL: <strong className="font-medium text-white">{doctor.cedula}</strong> (UDEFA) &nbsp;|&nbsp; 
             CÉDULA ESPECIALIDAD: <strong className="font-medium text-white">{doctor.cedulaEspecialidad}</strong> (UDEFA) &nbsp;|&nbsp; 
             CÉDULA SUBESPECIALIDAD: <strong className="font-medium text-white">14233651</strong> (UDEFA)
+            {doctor.cofepris && (
+              <>
+                &nbsp;|&nbsp; COFEPRIS: <strong className="font-medium text-white">{doctor.cofepris}</strong>
+              </>
+            )}
           </p>
           <p className="text-slate-500 text-[9px] tracking-wider uppercase mt-1">
             © {new Date().getFullYear()} DR. VÍCTOR JAVIER HERRERA VIRRUETA. TODOS LOS DERECHOS RESERVADOS. &nbsp;|&nbsp; 

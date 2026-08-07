@@ -8,7 +8,7 @@ export const doctor: DoctorProfile = {
   subspecialty: "Endoscopia del Aparato Digestivo",
   cedula: "10144625", // Médico Cirujano Militar
   cedulaEspecialidad: "12983449", // Especialidad en Cirugía General
-  cofepris: undefined,
+  cofepris: "2631012002A00447",
   phone: "9997708534",
   whatsapp: "9997708534",
   email: "victorjavier467@gmail.com",
