@@ -10,7 +10,7 @@ export const doctor: DoctorProfile = {
   cedulaEspecialidad: "12983449", // Especialidad en Cirugía General
   cofepris: "2631012002A00447",
   phone: "9997708534",
-  whatsapp: "9997708534",
+  whatsapp: "+529997708534",
   email: "victorjavier467@gmail.com",
   address: "Avenida Pérez Ponce #496, Colonia Centro, Mérida, Yucatán",
   city: "Mérida",
@@ -96,7 +96,7 @@ export const offices = [
     state: "Yucatán",
     cp: "97000",
     phone: "9997708534",
-    whatsapp: "9997708534",
+    whatsapp: "+529997708534",
     googleMapsUrl: "https://maps.google.com/?q=Avenida+Perez+Ponce+496,+Centro,+97000+Merida,+Yucatan"
   },
   {
@@ -107,7 +107,7 @@ export const offices = [
     state: "Yucatán",
     cp: "97314",
     phone: "9997708534",
-    whatsapp: "9997708534",
+    whatsapp: "+529997708534",
     googleMapsUrl: "https://maps.google.com/?q=Calle+31+645+A,+Ciudad+Caucel,+97314+Merida,+Yucatan"
   }
 ];

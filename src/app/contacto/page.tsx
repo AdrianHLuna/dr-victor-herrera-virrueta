@@ -181,7 +181,7 @@ export default function ContactoPage() {
                   </div>
                   <div>
                     <h5 className="font-bold text-slate-500 text-[10px] uppercase tracking-wider">Agendar por WhatsApp</h5>
-                    <p className="text-slate-800 text-sm font-bold font-mono">999 770 8534</p>
+                    <p className="text-slate-800 text-sm font-bold font-mono">+52 999 770 8534</p>
                   </div>
                 </a>
               </div>
