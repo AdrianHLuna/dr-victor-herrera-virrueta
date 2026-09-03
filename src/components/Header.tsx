@@ -15,7 +15,7 @@ export default function Header() {
       {/* Top Bar - Credentials & Urgent Contact */}
       <div className="bg-primary text-primary-foreground text-[10px] sm:text-[11px] py-2.5 hidden md:block tracking-wide">
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex gap-4 items-center font-light">
+          <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1 items-center font-light">
             <span>
               Céd. Prof: <strong className="font-semibold text-white">{doctor.cedula}</strong> <span className="text-accent font-bold text-[9px] uppercase tracking-wider">(UDEFA)</span>
             </span>
@@ -27,6 +27,14 @@ export default function Header() {
             <span>
               Céd. Subesp: <strong className="font-semibold text-white">14233651</strong> <span className="text-accent font-bold text-[9px] uppercase tracking-wider">(UDEFA)</span>
             </span>
+            {doctor.cofepris && (
+              <>
+                <span className="text-slate-700">|</span>
+                <span>
+                  COFEPRIS: <strong className="font-semibold text-white">{doctor.cofepris}</strong>
+                </span>
+              </>
+            )}
           </div>
           <div className="flex items-center gap-4">
             <a href={`tel:${doctor.phone}`} className="flex items-center gap-2 text-slate-300 hover:text-white transition-all font-semibold">
@@ -84,6 +92,7 @@ export default function Header() {
             <span>Céd. Prof: {doctor.cedula} (UDEFA)</span>
             <span>Céd. Esp: {doctor.cedulaEspecialidad} (UDEFA)</span>
             <span>Céd. Subesp: 14233651 (UDEFA)</span>
+            {doctor.cofepris && <span>COFEPRIS: {doctor.cofepris}</span>}
           </div>
 
           <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-4 flex items-center justify-center gap-2 bg-primary text-white py-4 text-xs font-bold uppercase tracking-widest rounded-xl">
