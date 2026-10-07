@@ -6,6 +6,8 @@ import { doctor } from "@/data/doctor";
 import { useState } from "react";
 import { FaBars, FaTimes, FaWhatsapp, FaPhone } from "react-icons/fa";
 
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const whatsappUrl = `https://wa.me/${doctor.whatsapp.replace(/\D/g, "")}`;
@@ -37,7 +39,11 @@ export default function Header() {
             )}
           </div>
           <div className="flex items-center gap-4">
-            <a href={`tel:${doctor.phone}`} className="flex items-center gap-2 text-slate-300 hover:text-white transition-all font-semibold">
+            <a
+              href={`tel:${doctor.phone}`}
+              onClick={() => trackPhoneClick("header_urgencias")}
+              className="flex items-center gap-2 text-slate-300 hover:text-white transition-all font-semibold"
+            >
               <span className="h-2 w-2 rounded-full bg-accent animate-pulse"></span>
               Urgencias 24/7: <strong className="text-white font-bold tracking-wider">{doctor.phone.replace(/(\d{2})(\d{4})(\d{4})/, "$1 $2 $3")}</strong>
             </a>
@@ -69,7 +75,13 @@ export default function Header() {
         </nav>
 
         {/* Action Button */}
-        <a href={whatsappUrl} target="_blank" rel="noreferrer" className="hidden lg:flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 text-[10px] uppercase tracking-widest font-bold transition-all duration-300 rounded-xl">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => trackWhatsAppClick("header_desktop")}
+          className="hidden lg:flex items-center gap-2 bg-primary hover:bg-accent text-white px-5 py-3 text-[10px] uppercase tracking-widest font-bold transition-all duration-300 rounded-xl"
+        >
           <FaWhatsapp size={14} /> Agendar Cita
         </a>
 
@@ -95,7 +107,16 @@ export default function Header() {
             {doctor.cofepris && <span>COFEPRIS: {doctor.cofepris}</span>}
           </div>
 
-          <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-4 flex items-center justify-center gap-2 bg-primary text-white py-4 text-xs font-bold uppercase tracking-widest rounded-xl">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => {
+              setIsOpen(false);
+              trackWhatsAppClick("header_mobile");
+            }}
+            className="mt-4 flex items-center justify-center gap-2 bg-primary text-white py-4 text-xs font-bold uppercase tracking-widest rounded-xl"
+          >
             <FaWhatsapp size={16} /> Agendar Consulta
           </a>
         </div>

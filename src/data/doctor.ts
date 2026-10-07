@@ -84,7 +84,9 @@ export const doctor: DoctorProfile = {
   sameAs: [],
   ga4Id: "G-54KYKBY3H8",
   gtmId: "GTM-K6W8FQG3",
-  googleAdsId: "AW-18345396143"
+  googleAdsId: "AW-18345396143",
+  googleAdsPhoneLabel: "",
+  googleAdsWhatsappLabel: "",
 };
 
 export const offices = [

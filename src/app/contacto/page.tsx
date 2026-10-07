@@ -2,6 +2,7 @@ import { doctor } from "@/data/doctor";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { FaMapMarkerAlt, FaClock, FaPhone, FaWhatsapp, FaEnvelope, FaRegHospital, FaUniversity } from "react-icons/fa";
 import { FadeUp } from "@/components/Animations";
+import { TrackedAnchor } from "@/components/TrackedButtons";
 
 export const metadata = {
   title: "Contacto y Ubicación | Dr. Víctor Javier Herrera Virrueta",
@@ -110,12 +111,14 @@ export default function ContactoPage() {
                   >
                     Cómo llegar en mapa &rarr;
                   </a>
-                  <a 
+                  <TrackedAnchor 
                     href={`tel:${office.phone}`}
+                    type="phone"
+                    source={`contacto_office_${office.id}`}
                     className="text-slate-800 hover:text-accent font-bold font-mono"
                   >
                     {office.phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")}
-                  </a>
+                  </TrackedAnchor>
                 </div>
               </div>
             </FadeUp>
@@ -157,8 +160,10 @@ export default function ContactoPage() {
               <h3 className="text-2xl font-bold text-slate-900 font-serif">Canales de Agenda Directa</h3>
               
               <div className="flex flex-col gap-4">
-                <a 
+                <TrackedAnchor 
                   href={`tel:${doctor.phone}`} 
+                  type="phone"
+                  source="contacto_card"
                   className="flex items-center gap-4 bg-white border border-slate-200 hover:border-accent/40 p-4 rounded-2xl transition-all group shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
@@ -168,12 +173,14 @@ export default function ContactoPage() {
                     <h5 className="font-bold text-slate-500 text-[10px] uppercase tracking-wider">Citas Telefónicas y Urgencias</h5>
                     <p className="text-slate-800 text-sm font-bold font-mono">999 770 8534</p>
                   </div>
-                </a>
+                </TrackedAnchor>
 
-                <a 
+                <TrackedAnchor 
                   href={whatsappUrl} 
                   target="_blank" 
                   rel="noreferrer" 
+                  type="whatsapp"
+                  source="contacto_card"
                   className="flex items-center gap-4 bg-white border border-slate-200 hover:border-emerald-500/40 p-4 rounded-2xl transition-all group shadow-sm"
                 >
                   <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform">
@@ -183,7 +190,7 @@ export default function ContactoPage() {
                     <h5 className="font-bold text-slate-500 text-[10px] uppercase tracking-wider">Agendar por WhatsApp</h5>
                     <p className="text-slate-800 text-sm font-bold font-mono">+52 999 770 8534</p>
                   </div>
-                </a>
+                </TrackedAnchor>
               </div>
               
               <div className="bg-white border border-slate-200 p-4 rounded-2xl text-[10px] text-slate-500 font-light text-center">

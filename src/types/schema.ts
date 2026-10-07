@@ -86,6 +86,8 @@ export const DoctorProfileSchema = z.object({
  ga4Id: z.string().optional(),
  gtmId: z.string().optional(),
  googleAdsId: z.string().optional(),
+ googleAdsPhoneLabel: z.string().optional(),
+ googleAdsWhatsappLabel: z.string().optional(),
 });
 
 // ─── Medical Condition (Enfermedad) ───────────────────────────

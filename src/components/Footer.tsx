@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { doctor, offices } from "@/data/doctor";
 import { FaMapMarkerAlt, FaPhone, FaWhatsapp, FaEnvelope, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
 
 export default function Footer() {
   const whatsappUrl = `https://wa.me/${doctor.whatsapp.replace(/\D/g, "")}`;
@@ -58,9 +61,13 @@ export default function Footer() {
                 <FaPhone className="text-accent text-base flex-shrink-0" />
                 <div>
                   <p className="font-light text-slate-500">CITAS Y URGENCIAS:</p>
-                  <p className="text-white font-bold text-sm tracking-wider mt-0.5">
+                  <a
+                    href={`tel:${doctor.phone}`}
+                    onClick={() => trackPhoneClick("footer")}
+                    className="text-white font-bold text-sm tracking-wider mt-0.5 block hover:text-accent transition-colors"
+                  >
                     {doctor.phone.replace(/(\d{2})(\d{4})(\d{4})/, "$1 $2 $3")}
-                  </p>
+                  </a>
                 </div>
               </div>
               
@@ -72,6 +79,7 @@ export default function Footer() {
                     href={whatsappUrl} 
                     target="_blank" 
                     rel="noreferrer" 
+                    onClick={() => trackWhatsAppClick("footer")}
                     className="text-white font-bold hover:text-accent transition-colors"
                   >
                     Enviar Mensaje &rarr;

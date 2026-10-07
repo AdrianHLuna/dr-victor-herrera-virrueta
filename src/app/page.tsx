@@ -24,7 +24,7 @@ import {
 import StructuredData from "@/components/StructuredData";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
 
 export default function Home() {
   const [expandedBio, setExpandedBio] = useState(false);
@@ -109,12 +109,14 @@ export default function Home() {
                   href={whatsappUrl} 
                   target="_blank" 
                   rel="noreferrer" 
+                  onClick={() => trackWhatsAppClick("hero")}
                   className="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-widest transition-all rounded-2xl flex items-center justify-center gap-3 shadow-md hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <FaWhatsapp size={14} /> Agendar por WhatsApp
                 </a>
                 <a 
                   href={`tel:${doctor.phone}`}
+                  onClick={() => trackPhoneClick("hero")}
                   className="px-8 py-4 bg-[#111c2b] hover:bg-slate-900 text-white font-bold text-xs uppercase tracking-widest transition-all rounded-2xl flex items-center justify-center gap-3 shadow-md hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <FaPhone size={12} /> Citas: 999 770 8534
@@ -501,7 +503,7 @@ export default function Home() {
                   <p className="text-slate-500 text-xs font-light leading-relaxed mb-6">{office.address}</p>
                   <div className="border-t border-slate-100 pt-5 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-[#887039]">
                     <a href={office.googleMapsUrl} target="_blank" rel="noreferrer" className="hover:underline">Ver en Google Maps &rarr;</a>
-                    <a href={`tel:${office.phone}`} className="text-[#111c2b] font-mono">{office.phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")}</a>
+                    <a href={`tel:${office.phone}`} onClick={() => trackPhoneClick(`office_${office.id}`)} className="text-[#111c2b] font-mono">{office.phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")}</a>
                   </div>
                 </div>
               </div>

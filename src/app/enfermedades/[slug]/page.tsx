@@ -6,6 +6,7 @@ import StructuredData from "@/components/StructuredData";
 import Image from "next/image";
 import { FaCheckCircle, FaExclamationTriangle, FaStethoscope, FaInfoCircle, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/Animations";
+import { TrackedAnchor } from "@/components/TrackedButtons";
 
 export async function generateStaticParams() {
   return diseases.map((disease) => ({
@@ -179,20 +180,24 @@ export default async function DiseasePage({ params }: { params: Promise<{ slug: 
               </p>
               
               <div className="flex flex-col gap-3">
-                <a 
+                <TrackedAnchor 
                   href={whatsappUrl} 
                   target="_blank" 
                   rel="noreferrer" 
+                  type="whatsapp"
+                  source={`enfermedad_${disease.slug}`}
                   className="w-full flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition-all shadow-md text-xs uppercase tracking-wider"
                 >
                   <FaWhatsapp size={14} /> Agendar por WhatsApp
-                </a>
-                <a 
+                </TrackedAnchor>
+                <TrackedAnchor 
                   href={`tel:${doctor.phone}`}
+                  type="phone"
+                  source={`enfermedad_${disease.slug}`}
                   className="w-full flex items-center justify-center gap-3 bg-white text-slate-900 font-bold py-4 rounded-xl hover:bg-slate-50 transition-all shadow-md text-xs uppercase tracking-wider"
                 >
                   <FaPhone size={12} /> Llamar Consultorio
-                </a>
+                </TrackedAnchor>
               </div>
             </div>
 

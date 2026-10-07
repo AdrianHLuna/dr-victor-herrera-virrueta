@@ -2,7 +2,7 @@
 
 import { doctor } from "@/data/doctor";
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
-import { trackEvent } from "@/lib/analytics";
+import { trackWhatsAppClick, trackPhoneClick } from "@/lib/analytics";
 
 const FloatingButtons = () => {
   const cleanWhatsapp = doctor.whatsapp.replace(/\D/g, "");
@@ -21,7 +21,7 @@ const FloatingButtons = () => {
         rel="noreferrer"
         aria-label="Contactar por WhatsApp"
         className={`${buttonBaseClass} bg-[#25D366]`}
-        onClick={() => trackEvent("clic_whatsapp", { source: "floating" })}
+        onClick={() => trackWhatsAppClick("floating")}
       >
         <FaWhatsapp size={28} />
       </a>
@@ -31,7 +31,7 @@ const FloatingButtons = () => {
         href={phoneLink}
         aria-label="Llamar al doctor"
         className={`${buttonBaseClass} bg-primary text-primary-foreground`}
-        onClick={() => trackEvent("clic_llamar", { source: "floating" })}
+        onClick={() => trackPhoneClick("floating")}
       >
         <FaPhone size={20} />
       </a>
