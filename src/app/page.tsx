@@ -30,21 +30,99 @@ export default function Home() {
   const [expandedBio, setExpandedBio] = useState(false);
   const whatsappUrl = `https://wa.me/${doctor.whatsapp.replace(/\D/g, "")}`;
 
-  const homeSchema = {
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    name: `${doctor.title} ${doctor.name}`,
-    description: doctor.bio,
-    medicalSpecialty: doctor.specialty,
-    telephone: doctor.phone,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: doctor.address,
-      addressLocality: doctor.city,
-      addressRegion: doctor.state,
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://drvictorherreravirrueta.com";
+  const physicianId = `${siteUrl}/#physician`;
+  const organizationId = `${siteUrl}/#organization`;
+
+  // Reforzado 2026-10-19: "Physician" solo no es un tipo de identidad que
+  // reconozcan los verificadores de agentes de IA (esperan Person,
+  // Organization, Product, etc.) — se agrega "Person" al arreglo de tipos, y
+  // se separa un nodo "Organization" aparte con contactPoint y dirección
+  // completa, que es lo que un agente usa para verificar que el negocio es
+  // legítimo y responder preguntas de contacto.
+  const homeSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": ["Person", "Physician"],
+      "@id": physicianId,
+      name: `${doctor.title} ${doctor.name}`,
+      givenName: "Víctor Javier",
+      familyName: "Herrera Virrueta",
+      honorificPrefix: doctor.title,
+      jobTitle: doctor.specialistTitle || doctor.specialty,
+      description: doctor.bio,
+      url: siteUrl,
+      medicalSpecialty: doctor.specialty,
+      telephone: doctor.phone,
+      email: doctor.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: doctor.address,
+        addressLocality: doctor.city,
+        addressRegion: doctor.state,
+        addressCountry: "MX",
+      },
+      image: doctor.photo.startsWith("http") ? doctor.photo : `${siteUrl}${doctor.photo}`,
+      priceRange: `$${doctor.consultationPrice} MXN`,
+      paymentAccepted: doctor.paymentMethods.join(", "),
+      hasCredential: doctor.education.map((e) => ({
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: e.degree,
+        recognizedBy: { "@type": "CollegeOrUniversity", name: e.institution },
+      })),
+      sameAs: doctor.sameAs || [],
+      worksFor: { "@id": organizationId },
     },
-    priceRange: `$${doctor.consultationPrice} MXN`,
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "MedicalOrganization", "LocalBusiness"],
+      "@id": organizationId,
+      name: `Consultorio ${doctor.title} ${doctor.name}`,
+      description: `Consultorio de ${doctor.specialty} en ${doctor.city}, ${doctor.state}.`,
+      url: siteUrl,
+      telephone: doctor.phone,
+      email: doctor.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: doctor.address,
+        addressLocality: doctor.city,
+        addressRegion: doctor.state,
+        addressCountry: "MX",
+      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: doctor.phone,
+          email: doctor.email,
+          contactType: "customer service",
+          areaServed: "MX",
+          availableLanguage: ["es", "es-MX", "Spanish"],
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: doctor.whatsapp,
+          contactType: "reservations",
+          areaServed: "MX",
+          availableLanguage: ["es", "es-MX", "Spanish"],
+        },
+      ],
+      priceRange: `$${doctor.consultationPrice} MXN`,
+      currenciesAccepted: "MXN",
+      paymentAccepted: doctor.paymentMethods.join(", "),
+      image: doctor.photo.startsWith("http") ? doctor.photo : `${siteUrl}${doctor.photo}`,
+      sameAs: doctor.sameAs || [],
+      employee: { "@id": physicianId },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: `${doctor.title} ${doctor.name} — ${doctor.specialty}`,
+      inLanguage: "es-MX",
+      publisher: { "@id": organizationId },
+    },
+  ];
 
   const generalFAQs = [
     {
@@ -452,7 +530,7 @@ export default function Home() {
                 </div>
                 <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    <h4 className="font-bold text-[#111c2b] text-base font-serif mb-2 group-hover:text-[#887039] transition-colors">{sym.name}</h4>
+                    <h3 className="font-bold text-[#111c2b] text-base font-serif mb-2 group-hover:text-[#887039] transition-colors">{sym.name}</h3>
                     <p className="text-slate-500 text-[11px] leading-relaxed font-light line-clamp-3">{sym.description}</p>
                   </div>
                   <Link 
@@ -499,7 +577,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-8">
-                  <h4 className="text-xl font-bold text-[#111c2b] font-serif mb-2">{office.name}</h4>
+                  <h3 className="text-xl font-bold text-[#111c2b] font-serif mb-2">{office.name}</h3>
                   <p className="text-slate-500 text-xs font-light leading-relaxed mb-6">{office.address}</p>
                   <div className="border-t border-slate-100 pt-5 flex justify-between items-center text-xs font-bold uppercase tracking-wider text-[#887039]">
                     <a href={office.googleMapsUrl} target="_blank" rel="noreferrer" className="hover:underline">Ver en Google Maps &rarr;</a>
